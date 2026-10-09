@@ -1,0 +1,12 @@
+{
+  "page.title": "Work · Samantha Paras",
+  "page.meta": "Projects by Samantha Paras: QuestKeeper, a full-stack D&D companion; Can You Spot It, a team-built AI trivia game; and a software engineering externship with Nugget.",
+  "intro.eyebrow": "Work",
+  "intro.h1": "Things I've built, and why they exist",
+  "intro.text": "Each project starts with the problem or idea behind it. QuestKeeper's case study follows what I tried, what broke and what changed.",
+  "card.questkeeper.type": "Full-stack web app · Jun 2026 → now",
+  "card.questkeeper.stack": "Stack: React 19 · Express · Supabase · Vitest",
+  "card.cysi.type": "Web game · team of four · 2026",
+  "card.nugget.type": "Software engineering externship · 4 weeks · 2026",
+  "card.nugget.summary": "Help parents find family-friendly restaurants through reviews grounded in real family context. I built community groups and a guided four-step review form."
+}
