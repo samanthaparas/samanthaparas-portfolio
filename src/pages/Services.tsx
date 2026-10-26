@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { t } from '../content';
 import { StopTag } from '../components/StopTag';
+import { Shot } from '../components/Shot';
 
 const s = (key: string) => t('services', key);
 
@@ -38,15 +39,18 @@ function has(key: string) {
 export default function Services() {
   return (
     <div className="page">
-      <section className="container page-head" aria-labelledby="services-h1">
-        <p className="label">{s('hero.eyebrow')}</p>
-        <h1 id="services-h1">{s('hero.h1')}</h1>
-        <p className="lede">{s('hero.text.1')}</p>
-        <p className="measure">{s('hero.text.2')}</p>
-        <div className="btn-row">
-          <Link to="/contact" state={{ reason: 'build' }} className="btn btn-primary">{s('hero.cta.contact')}</Link>
-          <Link to="#proof" className="btn btn-secondary">{s('hero.cta.proof')}</Link>
+      <section className="container page-head with-photo" aria-labelledby="services-h1">
+        <div className="with-photo-text">
+          <p className="label">{s('hero.eyebrow')}</p>
+          <h1 id="services-h1">{s('hero.h1')}</h1>
+          <p className="lede">{s('hero.text.1')}</p>
+          <p className="measure">{s('hero.text.2')}</p>
+          <div className="btn-row">
+            <Link to="/contact" state={{ reason: 'build' }} className="btn btn-primary">{s('hero.cta.contact')}</Link>
+            <Link to="#proof" className="btn btn-secondary">{s('hero.cta.proof')}</Link>
+          </div>
         </div>
+        <Shot altKey="photo.services" base="/images/me/services" widths={[232, 463]} width={463} height={498} sizes="220px" className="portrait" eager />
       </section>
 
       <section className="section container" id="common-problems" aria-labelledby="problems-h2">

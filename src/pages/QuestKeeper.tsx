@@ -4,6 +4,7 @@ import { t } from '../content';
 import { external } from '../lib/site';
 import { ExtLink } from '../components/ExtLink';
 import { Labeled, MarginNote } from '../components/bits';
+import { Shot } from '../components/Shot';
 
 const q = (key: string) => t('questkeeper', key);
 
@@ -25,6 +26,13 @@ export const questkeeperSections = [
 ];
 
 const versions = ['v01', 'v02', 'v05', 'v10'] as const;
+
+/** One screenshot per version where there's an approved one (v0.5's sheet appears under What went wrong). */
+const versionShots: Partial<Record<(typeof versions)[number], { base: string; widths: number[]; width: number; height: number }>> = {
+  v01: { base: '/images/qk/v01-search', widths: [640, 1280], width: 1280, height: 900 },
+  v02: { base: '/images/qk/v02-home', widths: [640, 965], width: 965, height: 788 },
+  v10: { base: '/images/qk/v10-sheet', widths: [800, 1600], width: 1600, height: 1125 },
+};
 const decisions = ['paths', 'tabs', 'homebrew'] as const;
 
 function SectionList({ onPick }: { onPick?: () => void }) {
@@ -111,6 +119,7 @@ export default function QuestKeeper() {
                 <li key={v}>
                   <h3 className="version-label mono">{q(`built.${v}.label`)}</h3>
                   <p>{q(`built.${v}.text`)}</p>
+                  {versionShots[v] && <Shot altKey={`img.${v}`} {...versionShots[v]} enlarge />}
                   {v === 'v02' && <MarginNote kind="decision" label={q('note.v02.type')}>{q('note.v02.text')}</MarginNote>}
                   {v === 'v10' && <MarginNote kind="changed" label={q('note.v10.type')}>{q('note.v10.text')}</MarginNote>}
                 </li>
@@ -124,7 +133,15 @@ export default function QuestKeeper() {
               <article key={k} className="wrong-item">
                 <h3>{q(`wrong.${k}.title`)}</h3>
                 <p>{q(`wrong.${k}.text`)}</p>
-                {k === 'acolyte' && <MarginNote kind="mistake" label={q('note.acolyte.type')}>{q('note.acolyte.text')}</MarginNote>}
+                {k === 'acolyte' && (
+                  <>
+                    <Shot altKey="img.acolyte" base="/images/qk/acolyte" widths={[800]} width={800} height={562} enlarge />
+                    <MarginNote kind="mistake" label={q('note.acolyte.type')}>{q('note.acolyte.text')}</MarginNote>
+                  </>
+                )}
+                {k === 'sheet' && (
+                  <Shot altKey="img.sheet" base="/images/qk/v05-sheet-full" widths={[640, 1280]} width={1280} height={3073} sizes="320px" className="shot-strip" enlarge />
+                )}
               </article>
             ))}
           </section>
@@ -178,6 +195,10 @@ export default function QuestKeeper() {
             <div>
               <h2>{q('a11y.title')}</h2>
               <ul className="bullets">{[1, 2, 3, 4].map((n) => <li key={n}>{q(`a11y.${n}`)}</li>)}</ul>
+              <div className="shot-pair">
+                <Shot altKey="img.phoneBefore" base="/images/qk/phone-before" widths={[390, 780]} width={780} height={1688} sizes="240px" enlarge />
+                <Shot altKey="img.phoneAfter" base="/images/qk/phone-after" widths={[390, 780]} width={780} height={1688} sizes="240px" enlarge />
+              </div>
             </div>
             <div>
               <h2>{q('licensing.title')}</h2>

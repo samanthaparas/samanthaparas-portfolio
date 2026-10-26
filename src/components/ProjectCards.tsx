@@ -3,6 +3,7 @@ import { t } from '../content';
 import { external } from '../lib/site';
 import { ExtLink } from './ExtLink';
 import { Labeled, Origin, Status } from './bits';
+import { Shot } from './Shot';
 
 /**
  * The three project spec sheets, shared by Home and Work. Work overrides a few strings
@@ -24,31 +25,36 @@ export function ProjectCards({ onWorkPage = false }: { onWorkPage?: boolean }) {
   return (
     <div className="cards">
       <article className="card card-featured">
-        <p className="card-type label">
-          {pick('card.questkeeper.type')} <Status text={t('home', 'card.questkeeper.status')} />
-        </p>
-        <H className="card-name">
-          <Link to="/work/questkeeper">{t('home', 'card.questkeeper.name')}</Link>
-        </H>
-        <Origin text={t('home', 'card.questkeeper.origin')} />
-        <ul className="card-meta">
-          <li><Labeled text={t('home', 'card.questkeeper.role')} /></li>
-          <li><Labeled text={pick('card.questkeeper.stack')} /></li>
-          <li><Labeled text={t('home', 'card.questkeeper.evidence')} /></li>
-        </ul>
-        <p className="versions mono">{t('home', 'card.questkeeper.versions')}</p>
-        <div className="btn-row">
-          <Link to="/work/questkeeper" className="btn btn-primary">
-            {t('home', 'card.questkeeper.caseStudy')}
-          </Link>
-          <ExtLink href={external.questkeeperLive} className="btn btn-secondary">
-            {t('home', 'card.questkeeper.live')}
-          </ExtLink>
-          <ExtLink href={external.questkeeperRepo} className="btn btn-text">
-            {t('home', 'card.questkeeper.source')}
-          </ExtLink>
+        <div className="card-media">
+          <Shot altKey="img.home" base="/images/qk/home-v10" widths={[640, 1280]} width={1280} height={900} sizes="(min-width: 860px) 480px, 100vw" />
         </div>
-        <p className="small muted">{t('home', 'card.questkeeper.loadNote')}</p>
+        <div className="card-body">
+          <p className="card-type label">
+            {pick('card.questkeeper.type')} <Status text={t('home', 'card.questkeeper.status')} />
+          </p>
+          <H className="card-name">
+            <Link to="/work/questkeeper">{t('home', 'card.questkeeper.name')}</Link>
+          </H>
+          <Origin text={t('home', 'card.questkeeper.origin')} />
+          <ul className="card-meta">
+            <li><Labeled text={t('home', 'card.questkeeper.role')} /></li>
+            <li><Labeled text={pick('card.questkeeper.stack')} /></li>
+            <li><Labeled text={t('home', 'card.questkeeper.evidence')} /></li>
+          </ul>
+          <p className="versions mono">{t('home', 'card.questkeeper.versions')}</p>
+          <div className="btn-row">
+            <Link to="/work/questkeeper" className="btn btn-primary">
+              {t('home', 'card.questkeeper.caseStudy')}
+            </Link>
+            <ExtLink href={external.questkeeperLive} className="btn btn-secondary">
+              {t('home', 'card.questkeeper.live')}
+            </ExtLink>
+            <ExtLink href={external.questkeeperRepo} className="btn btn-text">
+              {t('home', 'card.questkeeper.source')}
+            </ExtLink>
+          </div>
+          <p className="small muted">{t('home', 'card.questkeeper.loadNote')}</p>
+        </div>
       </article>
 
       <article className="card">

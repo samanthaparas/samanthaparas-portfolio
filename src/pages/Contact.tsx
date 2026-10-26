@@ -5,6 +5,7 @@ import { ContactForm } from '../components/ContactForm';
 import { CopyEmail } from '../components/CopyEmail';
 import { ExtLink } from '../components/ExtLink';
 import { StopTag } from '../components/StopTag';
+import { Shot } from '../components/Shot';
 
 export default function Contact() {
   const state = useLocation().state as { reason?: 'build' } | null;
@@ -12,7 +13,10 @@ export default function Contact() {
     <div className="container page contact-page">
       <div>
         <StopTag href="/contact" mode="stop" />
-        <h1>{t('global', 'contact.h1')}</h1>
+        <div className="contact-heading">
+          <h1>{t('global', 'contact.h1')}</h1>
+          <Shot altKey="photo.contact" base="/images/me/contact" widths={[232, 463]} width={463} height={520} sizes="200px" className="portrait" eager />
+        </div>
         <p className="lede">{t('global', 'contact.lede')}</p>
         <p className="email-row">
           <a href={`mailto:${external.email}`} className="mono">{external.email}</a>{' '}

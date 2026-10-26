@@ -7,6 +7,7 @@ import { ExtLink } from '../components/ExtLink';
 import { ProjectCards } from '../components/ProjectCards';
 import { RoutePicker } from '../components/RoutePicker';
 import { StopTag } from '../components/StopTag';
+import { Shot } from '../components/Shot';
 
 const h = (key: string) => t('home', key);
 
@@ -24,6 +25,20 @@ const steps = [
   { n: '04', href: '/work/nugget-hackathon' },
   { n: '05', href: '/behind-the-build' },
 ];
+
+/** Marks "useful" with the gold underline that draws once on load (design system: hero underline, 500ms). */
+function HeroHeading({ text }: { text: string }) {
+  const word = 'useful';
+  const i = text.indexOf(word);
+  if (i === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, i)}
+      <span className="mark">{word}</span>
+      {text.slice(i + word.length)}
+    </>
+  );
+}
 
 /** "Text" → Destination: the arrow and label after it become the visible link cue. */
 function ProblemItem({ text, href }: { text: string; href: string }) {
@@ -44,7 +59,9 @@ export default function Home() {
       <section className="hero workspace" aria-labelledby="hero-h1">
         <div className="container hero-in">
           <p className="label">{h('hero.eyebrow')}</p>
-          <h1 id="hero-h1">{h('hero.h1')}</h1>
+          <h1 id="hero-h1">
+            <HeroHeading text={h('hero.h1')} />
+          </h1>
           <p className="lede">{h('hero.subline')}</p>
           <div className="btn-row">
             <Link to="/work" className="btn btn-primary">{h('hero.cta.work')}</Link>
@@ -104,23 +121,28 @@ export default function Home() {
         </ol>
       </section>
 
-      <section className="section container" aria-labelledby="btb-h2">
-        <StopTag href="/behind-the-build" mode="preview" />
-        <p className="label">{h('btb.eyebrow')}</p>
-        <h2 id="btb-h2">{h('btb.h2')}</h2>
-        <p className="measure">{h('btb.text')}</p>
-        <Link to="/behind-the-build" className="btn btn-text">{h('btb.link')}</Link>
-      </section>
+      <div className="section container teaser-pair">
+        <section className="teaser" aria-labelledby="btb-h2">
+          <StopTag href="/behind-the-build" mode="preview" />
+          <p className="label">{h('btb.eyebrow')}</p>
+          <h2 id="btb-h2">{h('btb.h2')}</h2>
+          <p className="measure">{h('btb.text')}</p>
+          <Link to="/behind-the-build" className="btn btn-text">{h('btb.link')}</Link>
+        </section>
 
-      <section className="section container" aria-labelledby="about-h2">
-        <StopTag href="/about" mode="preview" />
-        <StopTag href="/about#experience" mode="preview" />
-        <p className="label">{h('about.eyebrow')}</p>
-        <h2 id="about-h2">{h('about.h2')}</h2>
-        <p className="measure">{h('about.text.1')}</p>
-        <p className="measure">{h('about.text.2')}</p>
-        <Link to="/about" className="btn btn-text">{h('about.link')}</Link>
-      </section>
+        <section className="teaser with-photo" aria-labelledby="about-h2">
+          <div className="with-photo-text">
+            <StopTag href="/about" mode="preview" />
+            <StopTag href="/about#experience" mode="preview" />
+            <p className="label">{h('about.eyebrow')}</p>
+            <h2 id="about-h2">{h('about.h2')}</h2>
+            <p className="measure">{h('about.text.1')}</p>
+            <p className="measure">{h('about.text.2')}</p>
+            <Link to="/about" className="btn btn-text">{h('about.link')}</Link>
+          </div>
+          <Shot altKey="photo.home" base="/images/me/home" widths={[208, 416]} width={416} height={518} sizes="180px" className="portrait portrait-sm" />
+        </section>
+      </div>
 
       <section className="section container cta-band" aria-labelledby="cta-h2">
         <h2 id="cta-h2">{h('cta.h2')}</h2>

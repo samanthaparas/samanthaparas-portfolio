@@ -1,4 +1,4 @@
-import { t, fill } from '../content';
+import { t } from '../content';
 import { useAudience, type RouteId } from '../lib/audience';
 
 const options: RouteId[] = ['hire', 'build', 'snoop'];
@@ -20,9 +20,16 @@ export function RoutePicker() {
       </div>
       {route ? (
         <div className="route-line">
-          <p>
-            {fill(t('global', 'route.line'), { 'stops joined by " → "': stops.map((s) => s.label).join(' → ') })}
-          </p>
+          {/* The approved line "Your route: A → B → C", drawn as a path (350ms + 60ms per stop). */}
+          <p className="route-path-label">{t('global', 'route.line').split('{')[0].trim()}</p>
+          <ol key={route} className="route-path">
+            {stops.map((s, i) => (
+              <li key={s.label} style={{ '--delay': `${i * 60}ms` } as React.CSSProperties}>
+                {i > 0 && <span aria-hidden="true">→ </span>}
+                {s.label}
+              </li>
+            ))}
+          </ol>
           <p className="label">{t('global', 'route.reassure')}</p>
           <button type="button" className="btn btn-text" onClick={clear}>
             {t('global', 'route.clear')}
