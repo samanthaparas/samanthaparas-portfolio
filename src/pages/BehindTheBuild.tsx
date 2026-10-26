@@ -4,6 +4,7 @@ import { fill, t } from '../content';
 import { external } from '../lib/site';
 import { ExtLink } from '../components/ExtLink';
 import { StopTag } from '../components/StopTag';
+import { Shot } from '../components/Shot';
 
 const b = (key: string) => t('btb', key);
 
@@ -130,13 +131,13 @@ export default function BehindTheBuild() {
         <h2 id="players-h2">{b('players.h2')}</h2>
         <p className="measure">{b('players.p')}</p>
         <figure className="shot">
-          <img
-            src="/images/questkeeper-dm-table.jpg"
+          <Shot
+            altKey="btb:players.image.alt"
+            base="/images/questkeeper-dm-table"
+            widths={[800, 1600]}
             width={1600}
             height={1125}
-            loading="lazy"
-            decoding="async"
-            alt={b('players.image.alt')}
+            sizes="(min-width: 1200px) 1120px, 100vw"
           />
           <figcaption>{b('players.image.caption')}</figcaption>
         </figure>

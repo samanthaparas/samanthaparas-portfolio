@@ -1,17 +1,22 @@
-import about from './copy/about.json';
-import btb from './copy/behind-the-build.json';
-import cysi from './copy/can-you-spot-it.json';
-import eggs from './copy/easter-eggs-and-lab.json';
-import global from './copy/global.json';
-import home from './copy/home.json';
-import nugget from './copy/nugget.json';
-import questkeeper from './copy/questkeeper.json';
-import services from './copy/services.json';
-import work from './copy/work.json';
-
 // Approved public copy, imported from the planning repo's content/phase-4/public tables
 // (scripts/import-copy.mjs). Never edit these JSON files by hand; change the source table and re-import.
-const copy = { about, btb, cysi, eggs, global, home, nugget, questkeeper, services, work };
+// A file that hasn't been imported yet (e.g. images.json before its alt text is approved) is just empty.
+const files = import.meta.glob<Record<string, string>>('./copy/*.json', { eager: true, import: 'default' });
+const byName = (name: string) => files[`./copy/${name}.json`] ?? {};
+
+const copy = {
+  about: byName('about'),
+  btb: byName('behind-the-build'),
+  cysi: byName('can-you-spot-it'),
+  eggs: byName('easter-eggs-and-lab'),
+  global: byName('global'),
+  home: byName('home'),
+  images: byName('images'),
+  nugget: byName('nugget'),
+  questkeeper: byName('questkeeper'),
+  services: byName('services'),
+  work: byName('work'),
+};
 
 export type Page = keyof typeof copy;
 
@@ -27,6 +32,11 @@ export function fill(template: string, vars: Record<string, string | number>): s
   return template.replace(/\{([^}]+)\}/g, (match, name: string) =>
     name in vars ? String(vars[name]) : match,
   );
+}
+
+/** Returns a string only if it exists; for elements that render only once their copy is approved. */
+export function maybe(page: Page, key: string): string | undefined {
+  return (copy[page] as Record<string, string>)[key];
 }
 
 /** Keys in a page's copy that start with a prefix, in source order (e.g. list items). */

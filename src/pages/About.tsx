@@ -3,6 +3,7 @@ import { t } from '../content';
 import { external } from '../lib/site';
 import { ExtLink } from '../components/ExtLink';
 import { StopTag } from '../components/StopTag';
+import { Shot } from '../components/Shot';
 
 const a = (key: string) => t('about', key);
 
@@ -32,16 +33,19 @@ function Habit({ text }: { text: string }) {
 export default function About() {
   return (
     <div className="page">
-      <section className="container page-head" aria-labelledby="about-h1">
-        <StopTag href="/about" mode="stop" />
-        <p className="label">{a('intro.eyebrow')}</p>
-        <h1 id="about-h1">{a('intro.h1')}</h1>
-        <div className="prose">
-          <p>{a('intro.p1')}</p>
-          <p>{a('intro.p2')}</p>
-          <p>{a('intro.p3')}</p>
+      <section className="container page-head with-photo photo-left" aria-labelledby="about-h1">
+        <Shot altKey="photo.about" base="/images/me/about" widths={[320, 640]} width={640} height={1017} sizes="240px" className="portrait portrait-lg" eager />
+        <div className="with-photo-text">
+          <StopTag href="/about" mode="stop" />
+          <p className="label">{a('intro.eyebrow')}</p>
+          <h1 id="about-h1">{a('intro.h1')}</h1>
+          <div className="prose">
+            <p>{a('intro.p1')}</p>
+            <p>{a('intro.p2')}</p>
+            <p>{a('intro.p3')}</p>
+          </div>
+          <Link to="#experience" className="btn btn-secondary">{a('intro.jump')}</Link>
         </div>
-        <Link to="#experience" className="btn btn-secondary">{a('intro.jump')}</Link>
       </section>
 
       <section className="section container three-up" aria-label={`${a('enjoy.h3')}, ${a('devrel.h3')}, ${a('smallbiz.h3')}`}>
