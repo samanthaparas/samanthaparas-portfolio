@@ -106,8 +106,9 @@ describe('form validation', () => {
     vi.unstubAllGlobals();
   });
 
-  it('confirms with the visitor\'s name when it sends', async () => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, status: 200 }));
+  it('confirms with the visitor\'s name when it sends, with the reason in words', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
+    vi.stubGlobal('fetch', fetchMock);
     const select = setup();
     await userEvent.type(screen.getByLabelText('Name'), 'Sam');
     await userEvent.type(screen.getByLabelText('Email'), 'sam@example.com');
@@ -115,6 +116,9 @@ describe('form validation', () => {
     await userEvent.type(screen.getByLabelText('Message'), 'Hi there');
     await userEvent.click(screen.getByRole('button', { name: 'Send message' }));
     expect(await screen.findByText('Sent! Thanks, Sam.')).toBeInTheDocument();
+    const sent = new URLSearchParams((fetchMock.mock.calls[0][1] as RequestInit).body as string);
+    expect(sent.get('reason')).toBe('Just saying hello / Other');
+    expect(sent.get('form-name')).toBe('contact');
     vi.unstubAllGlobals();
   });
 });
