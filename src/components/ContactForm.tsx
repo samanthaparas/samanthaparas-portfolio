@@ -68,6 +68,8 @@ export function ContactForm({ ctaReason }: { ctaReason?: 'build' }) {
     setStatus('sending');
     try {
       const body = new URLSearchParams(new FormData(e.currentTarget) as unknown as Record<string, string>);
+      // Send the visible wording ("Hiring / recruiting"), not the internal code, so the email reads clearly.
+      body.set('reason', t('global', `form.reason.${reason}`));
       const res = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
