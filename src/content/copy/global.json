@@ -96,6 +96,7 @@
   "status.live": "● Live, in development",
   "status.completed": "● Completed",
   "status.inPlaytest": "◐ In playtest",
+  "status.launching": "◐ Launching mid-November",
   "status.concept": "◌ Concept",
   "status.experiment": "◇ Experiment",
   "version.v01": "v0.1 · It technically worked",

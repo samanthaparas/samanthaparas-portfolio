@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
-import { t } from '../content';
+import { numbered, t } from '../content';
+import { Shot } from '../components/Shot';
 import { Labeled, MarginNote } from '../components/bits';
 
 const c = (key: string) => t('cysi', key);
@@ -27,11 +28,20 @@ export default function CanYouSpotIt() {
         <div><p>{c('why.p')}</p></div>
       </section>
 
+      <section className="note-row" aria-labelledby="shots-h">
+        <h2 id="shots-h">{c('shots.h2')}</h2>
+        <div className="shot-row">
+          <Shot altKey="img.cysiTitle" base="/images/cysi/title" widths={[640, 1280]} width={1280} height={900} enlarge />
+          <Shot altKey="img.cysiHowto" base="/images/cysi/howto" widths={[640, 1280]} width={1280} height={900} enlarge />
+          <Shot altKey="img.cysiPractice" base="/images/cysi/practice" widths={[640, 1280]} width={1280} height={900} enlarge />
+        </div>
+      </section>
+
       <section className="note-row" aria-labelledby="part-h">
         <h2 id="part-h">{c('part.h2')}</h2>
         <div>
           <p>{c('part.p')}</p>
-          <ul className="bullets">{[1, 2, 3, 4, 5].map((n) => <li key={n}>{c(`part.bullet.${n}`)}</li>)}</ul>
+          <ul className="bullets">{numbered('cysi', 'part.bullet').map((item) => <li key={item}>{item}</li>)}</ul>
         </div>
       </section>
 

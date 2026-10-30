@@ -392,3 +392,17 @@ main:focus { outline: none; }
   .with-photo.photo-left:has(> .portrait) { grid-template-columns: auto minmax(0, 1fr); }
 }
 .contact-heading { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 24px; width: 100%; }
+
+/* Can You Spot It screenshots: one column on phones, a strip of three on wide screens. */
+.shot-row { display: grid; gap: 16px; }
+@media (min-width: 1040px) { .shot-row { grid-template-columns: repeat(3, minmax(0, 1fr)); } .shot-row .shot-link { max-width: 100%; } }
+
+/* Home "Now": recently shipped and up next, side by side on wide screens. */
+.now-grid { display: grid; gap: 24px; width: 100%; }
+@media (min-width: 860px) { .now-grid { grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: start; } }
+.now-col { display: grid; gap: 12px; justify-items: start; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 22px; }
+.now-next { border: 1.5px solid var(--ink); }
+.now-col h3 { font-size: 20px; }
+.now-list { list-style: none; display: grid; gap: 12px; }
+.now-list li { padding-left: 22px; position: relative; max-width: 62ch; }
+.now-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }

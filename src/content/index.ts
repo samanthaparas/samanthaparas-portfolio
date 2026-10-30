@@ -39,6 +39,14 @@ export function maybe(page: Page, key: string): string | undefined {
   return (copy[page] as Record<string, string>)[key];
 }
 
+/** Numbered items (`prefix.1`, `prefix.2`, …) in order, so lists follow the copy table. */
+export function numbered(page: Page, prefix: string): string[] {
+  return keysWithPrefix(page, `${prefix}.`)
+    .filter((k) => /^\d+$/.test(k.slice(prefix.length + 1)))
+    .sort((a, b) => Number(a.slice(prefix.length + 1)) - Number(b.slice(prefix.length + 1)))
+    .map((k) => t(page, k));
+}
+
 /** Keys in a page's copy that start with a prefix, in source order (e.g. list items). */
 export function keysWithPrefix(page: Page, prefix: string): string[] {
   return Object.keys(copy[page]).filter((k) => k.startsWith(prefix));

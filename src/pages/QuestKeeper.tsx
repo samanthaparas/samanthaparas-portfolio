@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { t } from '../content';
+import { numbered, t } from '../content';
 import { external } from '../lib/site';
 import { ExtLink } from '../components/ExtLink';
 import { Labeled, MarginNote } from '../components/bits';
@@ -25,13 +25,14 @@ export const questkeeperSections = [
   { id: 'receipts', label: () => 'Stack, tests, accessibility, links' },
 ];
 
-const versions = ['v01', 'v02', 'v05', 'v10'] as const;
+const versions = ['v01', 'v02', 'v05', 'v10', 'v15'] as const;
 
 /** One screenshot per version where there's an approved one (v0.5's sheet appears under What went wrong). */
 const versionShots: Partial<Record<(typeof versions)[number], { base: string; widths: number[]; width: number; height: number }>> = {
   v01: { base: '/images/qk/v01-search', widths: [640, 1280], width: 1280, height: 900 },
   v02: { base: '/images/qk/v02-home', widths: [640, 965], width: 965, height: 788 },
   v10: { base: '/images/qk/v10-sheet', widths: [800, 1600], width: 1600, height: 1125 },
+  v15: { base: '/images/qk/v15-dm-combat', widths: [720, 1440], width: 1440, height: 900 },
 };
 const decisions = ['paths', 'tabs', 'homebrew'] as const;
 
@@ -80,7 +81,6 @@ export default function QuestKeeper() {
           <ExtLink href={external.questkeeperLive} className="btn btn-primary">{q('header.live')}</ExtLink>
           <ExtLink href={external.questkeeperRepo} className="btn btn-secondary">{q('header.source')}</ExtLink>
         </div>
-        <p className="small muted">{q('header.loadNote')}</p>
       </header>
 
       <PhoneSections />
@@ -162,7 +162,7 @@ export default function QuestKeeper() {
           <section id="next" className="case-section" aria-labelledby="next-h">
             <h2 id="next-h">{q('next.h2')}</h2>
             <ul className="bullets">
-              {[1, 2, 3, 4, 5].map((n) => <li key={n}>{q(`next.${n}`)}</li>)}
+              {numbered('questkeeper', 'next').map((item) => <li key={item}>{item}</li>)}
             </ul>
             <p>{q('next.after')}</p>
           </section>
@@ -181,7 +181,7 @@ export default function QuestKeeper() {
           <section id="receipts" className="case-section receipts" aria-label="Stack, tests, accessibility, links">
             <div>
               <h2>{q('stack.title')}</h2>
-              <ul className="bullets">{[1, 2, 3, 4].map((n) => <li key={n}>{q(`stack.${n}`)}</li>)}</ul>
+              <ul className="bullets">{numbered('questkeeper', 'stack').map((item) => <li key={item}>{item}</li>)}</ul>
             </div>
             <div>
               <h2>{q('tests.title')}</h2>

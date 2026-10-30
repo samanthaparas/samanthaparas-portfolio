@@ -26,7 +26,7 @@ export function ProjectCards({ onWorkPage = false }: { onWorkPage?: boolean }) {
     <div className="cards">
       <article className="card card-featured">
         <div className="card-media">
-          <Shot altKey="img.home" base="/images/qk/home-v10" widths={[640, 1280]} width={1280} height={900} sizes="(min-width: 860px) 480px, 100vw" />
+          <Shot altKey="img.home" base="/images/qk/home-tavern" widths={[640, 1280]} width={1280} height={900} sizes="(min-width: 860px) 480px, 100vw" />
         </div>
         <div className="card-body">
           <p className="card-type label">
@@ -53,7 +53,6 @@ export function ProjectCards({ onWorkPage = false }: { onWorkPage?: boolean }) {
               {t('home', 'card.questkeeper.source')}
             </ExtLink>
           </div>
-          <p className="small muted">{t('home', 'card.questkeeper.loadNote')}</p>
         </div>
       </article>
 
