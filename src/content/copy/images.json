@@ -1,8 +1,9 @@
 {
-  "img.home": "QuestKeeper home page with a search bar for spells, classes, races, rules and game terms, three starter steps, and category cards.",
+  "img.home": "QuestKeeper's tavern-style home page: a fireplace illustration beside the heading \"Find your way into the story,\" a quiz button, and search by name or by meaning.",
   "img.v01": "QuestKeeper v0.1 search results for \"fireball\": two spells in a list, and an empty \"Select an Item\" panel beside them.",
   "img.v02": "QuestKeeper home page in August 2026, with a dark background, a search bar and category cards.",
   "img.v10": "QuestKeeper v1.0 character sheet for a test character: hit points, armor class and ability scores in a header, a Skills sidebar, and tabs for Actions, Spells, Resources, Inventory, Features and Story.",
+  "img.v15": "QuestKeeper's DM screen with sample data: the party on the left, the initiative order in the middle with a goblin boss's DM-only hit points, and an activity log on the right.",
   "img.acolyte": "Character creation, step 9 of 11, \"Choose a Background\": Acolyte is the only option in the list.",
   "img.sheet": "A level 1 character sheet arranged as one long page, with stats and skills followed by attacks, spellcasting, resources and equipment.",
   "img.phoneBefore": "Before: the character sheet on a phone, with ability-score labels and Save badges overlapping each other.",
@@ -10,5 +11,8 @@
   "photo.about": "Samantha Paras smiling, wearing glasses and a white shirt.",
   "photo.home": "Samantha smiling outdoors, wearing glasses and a black shirt.",
   "photo.services": "Samantha working on a laptop at a table by a window.",
-  "photo.contact": "Samantha smiling at a table with her laptop, chin resting on her hand."
+  "photo.contact": "Samantha smiling at a table with her laptop, chin resting on her hand.",
+  "img.cysiTitle": "Can You Spot It's title screen: a detective-themed logo with a magnifying glass, the tagline \"Find the mistakes hidden in true facts,\" and a Begin Game button.",
+  "img.cysiHowto": "The How to play guide: \"The Eiffel Tower is in Pariss, France,\" with the misspelling highlighted as an example.",
+  "img.cysiPractice": "A practice round: a short paragraph about sea otters with two mistakes to find and a Need a hint button."
 }

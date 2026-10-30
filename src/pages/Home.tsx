@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { t } from '../content';
+import { numbered, t } from '../content';
 import { external } from '../lib/site';
 import { ContactForm } from '../components/ContactForm';
 import { CopyEmail } from '../components/CopyEmail';
@@ -80,9 +80,31 @@ export default function Home() {
                 <span className="only-desktop-inline">{h('currently.4.desktop')}</span>
                 <span className="only-phone-inline">{h('currently.4.phone')}</span>
               </li>
+              <li>{h('currently.5')}</li>
             </ul>
           </div>
           <RoutePicker />
+        </div>
+      </section>
+
+      <section className="section container now" aria-labelledby="now-h2">
+        <p className="label">{h('now.eyebrow')}</p>
+        <h2 id="now-h2">{h('now.h2')}</h2>
+        <p className="measure">{h('now.intro')}</p>
+        <div className="now-grid">
+          <div className="now-col">
+            <h3>{h('now.shipped.h3')}</h3>
+            <ul className="now-list">
+              {numbered('home', 'now.shipped').map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </div>
+          <div className="now-col now-next">
+            <h3>{h('now.next.h3')}</h3>
+            <ul className="now-list">
+              {numbered('home', 'now.next').map((item) => <li key={item}>{item}</li>)}
+            </ul>
+            <Link to="#contact" className="btn btn-text">{h('now.link')}</Link>
+          </div>
         </div>
       </section>
 
