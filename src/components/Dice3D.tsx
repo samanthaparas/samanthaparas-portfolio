@@ -198,7 +198,9 @@ function Scene({ value, rollKey, celebrate, lowPower, onSettled, onDieClick }: D
   }, [assets]);
 
   // Each roll: simulate, renumber so `value` ends on top, then play the throw back.
-  const play = useRef<{ throw: Throw; start: number; settled: boolean } | null>(null);
+  // `start` stays null through two warm-up frames (die held at its first pose while shaders compile),
+  // so the throw's clock begins on a frame that actually reached the screen.
+  const play = useRef<{ throw: Throw; start: number | null; last: number; warm: number; settled: boolean } | null>(null);
   const glide = useRef<{ start: number; from: Vector3; to: Vector3; look: Vector3 } | null>(null);
   const burst = useRef<{ start: number; velocities: Float32Array } | null>(null);
   const aspect = size.width / Math.max(size.height, 1);
@@ -217,10 +219,11 @@ function Scene({ value, rollKey, celebrate, lowPower, onSettled, onDieClick }: D
       });
       burst.current = null;
       assets.burstMaterial.opacity = 0;
-      play.current = { throw: t, start: performance.now(), settled: false };
+      play.current = { throw: t, start: null, last: 0, warm: 2, settled: false };
       glide.current = null;
       camera.position.copy(CAMERA);
       camera.lookAt(0, 0.3, 0);
+      gl.compile(scene, camera); // compile every material now, not mid-throw
       invalidate();
     }
     // Only a new roll restarts the throw; resizing mid-roll doesn't.
@@ -250,7 +253,16 @@ function Scene({ value, rollKey, celebrate, lowPower, onSettled, onDieClick }: D
     let busy = false;
     if (p && die.current) {
       const t = p.throw;
-      const exact = ((performance.now() - p.start) / 1000) * 60;
+      const now = performance.now();
+      if (p.start === null) {
+        if (p.warm > 0) p.warm -= 1;
+        else p.start = now;
+      } else if (now - p.last > 50) {
+        // A long frame (tab switch, busy device): pause the throw instead of jumping ahead.
+        p.start += now - p.last - 1000 / 60;
+      }
+      p.last = now;
+      const exact = p.start === null ? 0 : ((now - p.start) / 1000) * 60;
       const i = Math.min(Math.floor(exact), t.steps - 1);
       const j = Math.min(i + 1, t.steps - 1);
       const f = Math.min(exact - i, 1);
@@ -283,6 +295,7 @@ function Scene({ value, rollKey, celebrate, lowPower, onSettled, onDieClick }: D
       } else {
         busy = true;
       }
+      if (p.start === null) busy = true;
     }
     const g = glide.current;
     if (g) {
