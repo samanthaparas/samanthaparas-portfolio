@@ -5,6 +5,7 @@ import { external } from '../lib/site';
 import { ExtLink } from '../components/ExtLink';
 import { StopTag } from '../components/StopTag';
 import { Shot } from '../components/Shot';
+import { AttackDemo } from '../components/AttackDemo';
 
 const b = (key: string) => t('btb', key);
 
@@ -121,6 +122,8 @@ export default function BehindTheBuild() {
         <h2 id="why-h2">{b('why.h2')}</h2>
         <p className="measure">{b('why.p')}</p>
       </section>
+
+      <AttackDemo />
 
       <section className="section container" aria-labelledby="checked-h2">
         <h2 id="checked-h2">{b('checked.h2')}</h2>
