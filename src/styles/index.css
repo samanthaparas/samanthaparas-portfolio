@@ -339,6 +339,7 @@ main:focus { outline: none; }
   .experience thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .experience tr { display: grid; gap: 4px; padding-block: 16px; border-top: 1px solid var(--rule); }
   .experience th, .experience td { display: block; padding: 0; border: 0; }
+  .experience .role { display: grid; }
   .experience .carried:not(:empty) { color: var(--muted); }
 }
 
@@ -507,3 +508,14 @@ main:focus { outline: none; }
 .wordmark { display: inline-flex; align-items: center; min-height: 44px; }
 .card-name a { display: inline-flex; align-items: center; min-height: 44px; }
 .email-row a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* GitHub contribution graph (About). Steps toward the accent gold, which is darker in light mode so the steps stay visible. */
+.gh-graph { display: block; width: 100%; height: auto; margin-top: 20px; }
+.gh-month { font: 500 10px var(--f-mono); fill: var(--muted); }
+.gh-l0 { fill: var(--rule); }
+.gh-l1 { fill: color-mix(in srgb, var(--accent) 30%, var(--rule)); }
+.gh-l2 { fill: color-mix(in srgb, var(--accent) 55%, var(--rule)); }
+.gh-l3 { fill: color-mix(in srgb, var(--accent) 78%, var(--rule)); }
+.gh-l4 { fill: var(--accent); }
+.gh-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between; margin-top: 12px; }
+.gh-meta p { margin: 0; color: var(--muted); }

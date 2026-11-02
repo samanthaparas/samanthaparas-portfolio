@@ -4,6 +4,7 @@ import { external } from '../lib/site';
 import { ExtLink } from '../components/ExtLink';
 import { StopTag } from '../components/StopTag';
 import { Shot } from '../components/Shot';
+import { GitHubGraph } from '../components/GitHubGraph';
 
 const a = (key: string) => t('about', key);
 
@@ -98,6 +99,8 @@ export default function About() {
           </tbody>
         </table>
       </section>
+
+      <GitHubGraph />
 
       <section className="section container" aria-labelledby="outside-h2">
         <h2 id="outside-h2">{a('outside.h2')}</h2>

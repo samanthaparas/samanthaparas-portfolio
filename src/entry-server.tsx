@@ -25,10 +25,19 @@ export function render(url: string, notFound = false) {
     `<meta property="og:title" content="${esc(meta.title)}" />`,
     `<meta property="og:description" content="${esc(meta.description)}" />`,
     `<meta property="og:type" content="website" />`,
-    `<meta name="twitter:card" content="summary" />`,
+    `<meta name="twitter:card" content="${SITE_URL ? 'summary_large_image' : 'summary'}" />`,
     `<meta name="theme-color" content="#F3EFE6" media="(prefers-color-scheme: light)" />`,
     `<meta name="theme-color" content="#171C19" media="(prefers-color-scheme: dark)" />`,
   ];
+  if (SITE_URL) {
+    // Link previews (Slack, LinkedIn, iMessage) need an absolute image address.
+    tags.push(
+      `<meta property="og:image" content="${SITE_URL}/og-image.jpg" />`,
+      '<meta property="og:image:width" content="1200" />',
+      '<meta property="og:image:height" content="630" />',
+      '<meta property="og:image:alt" content="Samantha Paras · Software Engineer. I build useful software for real people." />',
+    );
+  }
   if (SITE_URL && !notFound) {
     // Netlify serves /work as /work/, so canonical addresses end in a slash (no redirect hop).
     const address = `${SITE_URL}${url === '/' ? '/' : `${url}/`}`;
