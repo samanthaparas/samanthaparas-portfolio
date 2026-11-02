@@ -83,6 +83,16 @@ export default function QuestKeeper() {
         </div>
       </header>
 
+      <section className="tldr" aria-labelledby="tldr-h">
+        <h2 id="tldr-h">{q('tldr.h2')}</h2>
+        <ul>
+          {(['problem', 'role', 'now', 'decisions'] as const).map((k) => (
+            <li key={k}><Labeled text={q(`tldr.${k}`)} /></li>
+          ))}
+        </ul>
+        <Link to="#bothered" className="btn btn-text">{q('tldr.story')}</Link>
+      </section>
+
       <PhoneSections />
 
       <div className="case-layout">

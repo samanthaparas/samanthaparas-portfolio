@@ -4,7 +4,7 @@ import { fill, t } from '../content';
 /** A label that starts with "Role: " / "Stack: " etc. is split so the prefix can be styled. */
 export function Labeled({ text }: { text: string }) {
   const i = text.indexOf(': ');
-  if (i === -1 || i > 14) return <>{text}</>;
+  if (i === -1 || i > 16) return <>{text}</>;
   return (
     <>
       <span className="label">{text.slice(0, i)}</span> {text.slice(i + 2)}
