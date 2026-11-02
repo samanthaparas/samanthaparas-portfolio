@@ -7,6 +7,7 @@ import { ExtLink } from '../components/ExtLink';
 import { ProjectCards } from '../components/ProjectCards';
 import { RoutePicker } from '../components/RoutePicker';
 import { StopTag } from '../components/StopTag';
+import { Labeled } from '../components/bits';
 import { Shot } from '../components/Shot';
 
 const h = (key: string) => t('home', key);
@@ -67,22 +68,20 @@ export default function Home() {
             <Link to="/work" className="btn btn-primary">{h('hero.cta.work')}</Link>
             <Link to="/services" className="btn btn-secondary">{h('hero.cta.services')}</Link>
           </div>
-          <div className="currently">
-            <p className="label">{h('currently.label')}</p>
+          {/* Hiring summary: the facts a recruiter scans for, beside the intro. The Currently items live in the Now section. */}
+          <aside className="currently hire" aria-labelledby="hire-label">
+            <p id="hire-label" className="label">{h('hire.label')}</p>
             <ul>
-              <li>{h('currently.1')}</li>
-              <li>{h('currently.2')}</li>
-              <li>
-                <span className="only-desktop-inline">{h('currently.3.desktop')}</span>
-                <span className="only-phone-inline">{h('currently.3.phone')}</span>
-              </li>
-              <li>
-                <span className="only-desktop-inline">{h('currently.4.desktop')}</span>
-                <span className="only-phone-inline">{h('currently.4.phone')}</span>
-              </li>
-              <li>{h('currently.5')}</li>
+              <li><Labeled text={h('hire.role')} /></li>
+              <li><Labeled text={h('hire.stack')} /></li>
+              <li><Labeled text={h('hire.where')} /></li>
+              <li><Labeled text={h('hire.proof')} /></li>
             </ul>
-          </div>
+            <p className="hire-links">
+              <Link to="/work">{h('hire.work')}</Link>
+              <Link to="/about#experience">{h('hire.experience')}</Link>
+            </p>
+          </aside>
           <RoutePicker />
         </div>
       </section>

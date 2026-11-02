@@ -423,3 +423,16 @@ main:focus { outline: none; }
 
 /* The free-plan Netlify badge floats bottom-right on phones; leave room so the end of each page is never under it. */
 @media (max-width: 859.98px) { .site-footer { padding-bottom: 96px; } }
+
+/* Hiring summary in the hero: label words stand out so it scans in seconds. */
+.hire ul { gap: 8px; }
+.hire li::before { content: none; }
+.hire .label { margin-right: 2px; }
+.hire-links { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.hire-links a { display: inline-flex; min-height: 44px; align-items: center; font-weight: 700; }
+
+/* QuestKeeper's 30-second version, above the full story. */
+.tldr { background: var(--surface); border: 1.5px solid var(--ink); border-radius: 6px; padding: 22px; display: grid; gap: 12px; justify-items: start; margin-bottom: 24px; max-width: 900px; }
+.tldr h2 { font-size: 24px; }
+.tldr ul { list-style: none; display: grid; gap: 10px; }
+.tldr li { max-width: 75ch; }
