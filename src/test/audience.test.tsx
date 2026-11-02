@@ -5,17 +5,17 @@ import { announcementFor, AudienceProvider, stopsFor, useAudience } from '../lib
 import { StopTag } from '../components/StopTag';
 
 describe('route data', () => {
-  it('drops missing stops: no résumé, no Lab, Easter eggs as a plain-text fallback', () => {
+  it('drops missing stops (no résumé, no Lab) and ends snooping at the Easter eggs page', () => {
     expect(stopsFor('hire').map((s) => s.label)).toEqual(['Work', 'Experience', 'Contact']);
     expect(stopsFor('build').map((s) => s.label)).toEqual(['Common problems', 'Services', 'Work', 'Contact']);
     const snoop = stopsFor('snoop');
-    expect(snoop.map((s) => s.label)).toEqual(['Behind the Build', 'About', "Easter eggs: they're around."]);
-    expect(snoop[2].href).toBeUndefined();
+    expect(snoop.map((s) => s.label)).toEqual(['Behind the Build', 'About', 'Easter eggs']);
+    expect(snoop[2].href).toBe('/easter-eggs');
   });
 
   it('announces from the stops that are actually available', () => {
     expect(announcementFor('hire')).toBe('Hiring route: Work, Experience, Contact.');
-    expect(announcementFor('snoop')).toBe("Snooping route: Behind the Build, About, Easter eggs: they're around.");
+    expect(announcementFor('snoop')).toBe('Snooping route: Behind the Build, About, Easter eggs.');
   });
 });
 
@@ -61,11 +61,10 @@ describe('StopTag', () => {
     expect(screen.getByText('Stop 3 of 3 · Last stop')).toBeInTheDocument();
   });
 
-  it('uses the plain-text fallback before Easter eggs', async () => {
+  it('links the snooping route on to the Easter eggs page', async () => {
     setup(<StopTag href="/about" mode="stop" />);
     await userEvent.click(screen.getByText('snoop'));
-    const tag = screen.getByText("Stop 2 of 3 · Next: Easter eggs: they're around.");
-    expect(tag.querySelector('a')).toBeNull();
+    expect(screen.getByRole('link', { name: 'Stop 2 of 3 · Next: Easter eggs →' })).toHaveAttribute('href', '/easter-eggs');
   });
 
   it('keeps the route for the session, across pages', async () => {

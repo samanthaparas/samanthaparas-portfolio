@@ -6,5 +6,7 @@
   "eggs.hint.console": "Engineers tend to open a certain panel sooner or later.",
   "eggs.hint.roll": "The search box knows more than pages. Try asking it to roll.",
   "eggs.hint.404": "Getting lost isn't always bad.",
+  "eggs.hint.konami": "Old-school cheat codes still work here. Well, one does.",
+  "eggs.konami.toast": "↑↑↓↓←→←→BA: extra life granted. It doesn't do anything, but respect for knowing the code.",
   "eggs.back": "Back to the main site"
 }
