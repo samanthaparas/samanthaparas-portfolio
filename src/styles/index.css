@@ -406,3 +406,20 @@ main:focus { outline: none; }
 .now-list { list-style: none; display: grid; gap: 12px; }
 .now-list li { padding-left: 22px; position: relative; max-width: 62ch; }
 .now-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+/* Screenshot viewer: full-size image over the page, scrolls for tall images, closes on Esc or the backdrop. */
+.lightbox { width: min(1400px, calc(100% - 24px)); max-height: calc(100% - 24px); padding: 12px; border: 2px solid var(--ink); border-radius: 8px; background: var(--surface); color: var(--ink); overflow: auto; }
+.lightbox::backdrop { background: rgba(0, 0, 0, .7); }
+.lightbox-head { position: sticky; top: 0; display: flex; justify-content: flex-end; padding-bottom: 8px; background: var(--surface); z-index: 1; }
+.lightbox-figure { margin: 0; display: grid; gap: 10px; }
+.lightbox-figure img { width: 100%; height: auto; border-radius: 4px; }
+.lightbox-figure figcaption { font-size: 15px; color: var(--muted); max-width: 80ch; }
+
+/* Evidence panel at the top of the QuestKeeper receipts. */
+.evidence { grid-column: 1 / -1; border-color: var(--ink) !important; }
+.evidence-list { list-style: none; display: grid; gap: 2px 24px; }
+@media (min-width: 860px) { .evidence-list { grid-template-columns: 1fr 1fr; } }
+.evidence-list a { display: inline-flex; min-height: 44px; align-items: center; }
+
+/* The free-plan Netlify badge floats bottom-right on phones; leave room so the end of each page is never under it. */
+@media (max-width: 859.98px) { .site-footer { padding-bottom: 96px; } }

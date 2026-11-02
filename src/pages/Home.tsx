@@ -87,6 +87,15 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section container" aria-labelledby="work-h2">
+        <StopTag href="/work" mode="preview" />
+        <div className="section-head">
+          <h2 id="work-h2">{h('work.h2')}</h2>
+          <Link to="/work" className="btn btn-text">{h('work.seeAll')}</Link>
+        </div>
+        <ProjectCards />
+      </section>
+
       <section className="section container now" aria-labelledby="now-h2">
         <p className="label">{h('now.eyebrow')}</p>
         <h2 id="now-h2">{h('now.h2')}</h2>
@@ -106,15 +115,6 @@ export default function Home() {
             <Link to="#contact" className="btn btn-text">{h('now.link')}</Link>
           </div>
         </div>
-      </section>
-
-      <section className="section container" aria-labelledby="work-h2">
-        <StopTag href="/work" mode="preview" />
-        <div className="section-head">
-          <h2 id="work-h2">{h('work.h2')}</h2>
-          <Link to="/work" className="btn btn-text">{h('work.seeAll')}</Link>
-        </div>
-        <ProjectCards />
       </section>
 
       <section className="section container" aria-labelledby="problems-h2">
