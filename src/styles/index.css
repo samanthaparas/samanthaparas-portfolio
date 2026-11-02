@@ -451,3 +451,11 @@ main:focus { outline: none; }
 .demo-verdict.is-crit { color: var(--accent); }
 .demo-wire { display: grid; gap: 8px; background: var(--paper); border: 1px dashed var(--muted); border-radius: 6px; padding: 18px; min-width: 0; }
 .demo-wire pre { margin: 0 0 6px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 10px 12px; }
+
+/* Easter eggs: the hints page and the cheat-code message. */
+.eggs { list-style: none; display: grid; gap: 12px; margin: 8px 0 32px; }
+.eggs li { padding: 16px 18px 16px 48px; position: relative; background: var(--surface); border: 1px dashed var(--muted); border-radius: 6px; max-width: 62ch; }
+.eggs li::before { content: '🥚'; position: absolute; left: 16px; top: 15px; }
+.toast-region { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 60; width: min(560px, calc(100% - 32px)); pointer-events: none; }
+.toast { margin: 0; padding: 14px 18px; background: var(--ink); color: var(--paper); border-radius: 6px; box-shadow: 4px 4px 0 var(--fill); font-weight: 700; }
+@media (prefers-reduced-motion: no-preference) { .toast { animation: toast-in .25s ease-out; } @keyframes toast-in { from { transform: translateY(12px); opacity: 0; } } }

@@ -3,7 +3,7 @@
 export const launch = {
   labHasEntries: false,
   resumePdf: false,
-  easterEggsPage: false,
+  easterEggsPage: true,
   conceptStudy: false,
   portfolioRepo: false,
 } as const;

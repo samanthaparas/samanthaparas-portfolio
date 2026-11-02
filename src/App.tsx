@@ -4,6 +4,7 @@ import About from './pages/About';
 import BehindTheBuild from './pages/BehindTheBuild';
 import CanYouSpotIt from './pages/CanYouSpotIt';
 import Contact from './pages/Contact';
+import EasterEggs from './pages/EasterEggs';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Nugget from './pages/Nugget';
@@ -24,6 +25,7 @@ export function App() {
         <Route path="about" element={<About />} />
         <Route path="services" element={<Services />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="easter-eggs" element={<EasterEggs />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

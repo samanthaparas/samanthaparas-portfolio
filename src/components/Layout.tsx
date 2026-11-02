@@ -6,6 +6,7 @@ import { metaFor } from '../lib/pages';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { JumpProvider } from './JumpTo';
+import { CheatCode } from './CheatCode';
 
 export function Layout() {
   return (
@@ -20,6 +21,7 @@ export function Layout() {
         </main>
         <Footer />
         <RouteAnnouncer />
+        <CheatCode />
         <NavigationEffects />
       </JumpProvider>
     </AudienceProvider>

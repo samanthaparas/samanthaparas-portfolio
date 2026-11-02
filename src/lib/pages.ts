@@ -22,6 +22,7 @@ export const pages: PageMeta[] = [
   fromCopy('/behind-the-build', 'btb'),
   fromCopy('/about', 'about'),
   fromCopy('/services', 'services'),
+  { path: '/easter-eggs', title: () => t('eggs', 'eggs.page.title'), description: () => t('eggs', 'eggs.page.meta') },
   // Contact has no page.meta row: the title follows the approved "{Page} · Samantha Paras" pattern
   // (global microcopy §9) and the description reuses the approved lede.
   { path: '/contact', title: () => 'Contact · Samantha Paras', description: () => t('global', 'contact.lede') },

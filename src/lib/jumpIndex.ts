@@ -27,6 +27,7 @@ export function jumpItems(): JumpItem[] {
     { group: 'pages', label: t('global', 'nav.services'), href: '/services' },
     { group: 'pages', label: t('global', 'footer.btb'), href: '/behind-the-build' },
     { group: 'pages', label: t('global', 'nav.contact'), href: '/contact' },
+    launch.easterEggsPage && { group: 'pages', label: 'Easter eggs', href: '/easter-eggs' },
   ];
   return items.filter((x): x is JumpItem => Boolean(x));
 }
