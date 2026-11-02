@@ -20,7 +20,7 @@ interface ShotProps {
   enlarge?: boolean;
 }
 
-export function Shot({ altKey, base, widths, width, height, sizes = '(min-width: 860px) 640px, 100vw', className, eager, enlarge }: ShotProps) {
+export function Shot({ altKey, base, widths, width, height, sizes = '(min-width: 860px) 640px, calc(100vw - 72px)', className, eager, enlarge }: ShotProps) {
   const alt = altKey.startsWith('btb:') ? maybe('btb', altKey.slice(4)) : maybe('images', altKey);
   if (!alt) return null;
   const largest = Math.max(...widths);

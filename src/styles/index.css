@@ -351,8 +351,10 @@ main:focus { outline: none; }
 .btb-grid { display: grid; gap: 24px; width: 100%; }
 @media (min-width: 860px) { .btb-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: start; } }
 .diagram { display: grid; gap: 18px; }
-.diagram-path { display: grid; gap: 8px; opacity: .45; transition: opacity .2s ease; }
-.diagram-path.is-active { opacity: 1; }
+.diagram-path { display: grid; gap: 8px; padding: 6px 8px 8px 12px; border-left: 3px solid transparent; transition: border-color .2s ease; }
+/* The selected path is marked by its gold rule and darker borders; unselected paths stay readable. */
+.diagram-path:not(.is-active) .diagram-node { border-color: var(--rule); color: var(--muted); }
+.diagram-path.is-active { border-left-color: var(--fill); }
 .diagram-nodes { list-style: none; display: grid; gap: 8px; }
 @media (min-width: 860px) { .diagram-nodes { grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); } }
 .diagram-node, .diagram-secret { background: var(--surface); border: 1.5px solid var(--ink); border-radius: 6px; padding: 10px; display: grid; gap: 2px; font-size: 14px; }
@@ -500,3 +502,8 @@ main:focus { outline: none; }
   .nf-stage canvas { animation: nf-canvas-in .45s ease-out; }
   @keyframes nf-canvas-in { from { opacity: 0; } }
 }
+
+/* Tap targets: at least 44px tall without changing how these look. */
+.wordmark { display: inline-flex; align-items: center; min-height: 44px; }
+.card-name a { display: inline-flex; align-items: center; min-height: 44px; }
+.email-row a { display: inline-flex; align-items: center; min-height: 44px; }

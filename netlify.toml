@@ -2,6 +2,10 @@
   command = "npm run build"
   publish = "dist"
 
+# The site's public address, for canonical links, og:url and the sitemap. Change it when a custom domain is added.
+[build.environment]
+  VITE_SITE_URL = "https://samanthaparas.netlify.app"
+
 # Every page is prerendered to its own index.html. Unknown paths get the prerendered 404.
 [[redirects]]
   from = "/*"

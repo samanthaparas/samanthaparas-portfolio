@@ -26,7 +26,7 @@ export function ProjectCards({ onWorkPage = false }: { onWorkPage?: boolean }) {
     <div className="cards">
       <article className="card card-featured">
         <div className="card-media">
-          <Shot altKey="img.home" base="/images/qk/home-tavern" widths={[640, 1280]} width={1280} height={900} sizes="(min-width: 860px) 480px, 100vw" />
+          <Shot altKey="img.home" base="/images/qk/home-tavern" widths={[640, 1280]} width={1280} height={900} sizes="(min-width: 860px) 480px, calc(100vw - 80px)" />
         </div>
         <div className="card-body">
           <p className="card-type label">
@@ -57,7 +57,7 @@ export function ProjectCards({ onWorkPage = false }: { onWorkPage?: boolean }) {
       </article>
 
       <article className="card">
-        <Shot altKey="img.cysiTitle" base="/images/cysi/title" widths={[640, 1280]} width={1280} height={900} sizes="(min-width: 860px) 420px, 100vw" />
+        <Shot altKey="img.cysiTitle" base="/images/cysi/title" widths={[640, 1280]} width={1280} height={900} sizes="(min-width: 860px) 420px, calc(100vw - 80px)" />
         <p className="card-type label">
           {pick('card.cysi.type')} <Status text={t('home', 'card.cysi.status')} />
         </p>
