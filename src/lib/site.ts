@@ -20,6 +20,8 @@ export const external = {
   // The current definition of attack_roll (the last migration to replace it).
   questkeeperAttackSql: 'https://github.com/samanthaparas/QuestKeeper/blob/main/supabase/migrations/20261003_monster_attacks.sql#L38',
   github: 'https://github.com/samanthaparas',
+  // Written daily by .github/workflows/contributions.yml; read by the About page's contribution graph.
+  contributionsData: 'https://raw.githubusercontent.com/samanthaparas/samanthaparas-portfolio/contributions-data/contributions.json',
   linkedin: 'https://www.linkedin.com/in/samantha-paras/',
   email: 'samantha.paras94@gmail.com',
   tripletenCertificate: 'https://drive.google.com/file/d/1EFWZK81K-YYzIHseD916oJo19uYNXrfu/view',

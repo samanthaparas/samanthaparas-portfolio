@@ -29,7 +29,9 @@ export const pages: PageMeta[] = [
 ];
 
 export function metaFor(path: string): { title: string; description: string } {
-  const p = pages.find((x) => x.path === path);
+  // Netlify serves /about as /about/, so ignore a trailing slash when matching.
+  const clean = path.length > 1 ? path.replace(/\/+$/, '') : path;
+  const p = pages.find((x) => x.path === clean);
   if (!p) return { title: t('global', 'notFound.title'), description: t('global', 'notFound.p') };
   return { title: p.title(), description: p.description() };
 }
