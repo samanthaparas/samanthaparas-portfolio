@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { App } from './App';
 import { metaFor, pages } from './lib/pages';
-import { SITE_URL } from './lib/site';
+import { external, SITE_URL } from './lib/site';
 
 export { pages };
 
@@ -30,8 +30,23 @@ export function render(url: string, notFound = false) {
     `<meta name="theme-color" content="#171C19" media="(prefers-color-scheme: dark)" />`,
   ];
   if (SITE_URL && !notFound) {
-    tags.push(`<link rel="canonical" href="${SITE_URL}${url}" />`, `<meta property="og:url" content="${SITE_URL}${url}" />`);
+    // Netlify serves /work as /work/, so canonical addresses end in a slash (no redirect hop).
+    const address = `${SITE_URL}${url === '/' ? '/' : `${url}/`}`;
+    tags.push(`<link rel="canonical" href="${address}" />`, `<meta property="og:url" content="${address}" />`);
   }
   if (notFound) tags.push('<meta name="robots" content="noindex" />');
+  // Structured data on the homepage: who this site is about, and where else to find her.
+  if (url === '/' && !notFound) {
+    const person = {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Samantha Paras',
+      jobTitle: 'Software Engineer',
+      ...(SITE_URL ? { url: SITE_URL } : {}),
+      sameAs: [external.github, external.linkedin],
+      knowsAbout: ['React', 'TypeScript', 'JavaScript', 'Node.js', 'Express', 'Supabase', 'PostgreSQL'],
+    };
+    tags.push(`<script type="application/ld+json">${JSON.stringify(person).replace(/</g, '\\u003c')}</script>`);
+  }
   return { html, head: tags.join('\n    ') };
 }

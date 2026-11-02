@@ -74,14 +74,19 @@ export function Header() {
         </nav>
 
         <div className="header-tools only-desktop">
+          {/* The visible text is the button's name (so voice control can say it); the longer
+              wording is a description. */}
           <button
             type="button"
             className="search-btn"
-            aria-label={t('global', 'jump.button.accessibleName')}
+            aria-describedby="jump-desc"
             onClick={(e) => jump.open('desktop', e.currentTarget)}
           >
             {t('global', isMac ? 'jump.button.mac' : 'jump.button.other')}
           </button>
+          <span id="jump-desc" className="visually-hidden">
+            {t('global', 'jump.button.accessibleName')}
+          </span>
           <ThemeToggle />
         </div>
 
