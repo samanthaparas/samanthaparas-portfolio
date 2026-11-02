@@ -480,3 +480,16 @@ main:focus { outline: none; }
 .form-sent { display: flex; align-items: center; gap: 12px; }
 .sent-die { flex: none; display: inline-grid; place-items: center; width: 40px; height: 40px; font: 800 16px var(--f-mono); color: var(--on-fill); background: var(--fill); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
 @media (prefers-reduced-motion: no-preference) { .sent-die { animation: nat1-roll .6s ease-out both; } }
+
+/* 404: the d20 stage, in the SP brand palette (plum, amethyst, rose gold). */
+.nf-stage { position: relative; width: 100%; height: clamp(260px, 42vw, 400px); border-radius: 10px; overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 15%, #3a1d52 0%, #241233 45%, #140a1e 100%); box-shadow: inset 0 0 0 1px rgba(232, 176, 143, .35); }
+.nf-stage canvas { display: block; touch-action: manipulation; }
+.nf-flat { position: absolute; inset: 0; display: grid; place-items: center; }
+.nf-flat .nat1 { width: 120px; height: 120px; font-size: 48px; color: #2a1238; background: linear-gradient(160deg, #f6d3b8, #e8b08f 55%, #b9785a); }
+.nf-flat .nat1.is-20 { box-shadow: 0 0 40px rgba(255, 211, 138, .8); }
+.nf-text { display: grid; gap: 10px; justify-items: start; align-content: start; min-height: 11em; }
+.nf-status { min-height: 1.4em; margin-bottom: -4px; }
+.nf-text h1.is-stale { opacity: .45; }
+.nf-projects { padding-top: 0; }
+@media (max-width: 859.98px) { .nf-text { min-height: 12em; } }
