@@ -8,6 +8,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <!--head-->
     <script>
+      // Mark that JavaScript runs (the 404's flat die stays hidden unless 3D can't run).
+      document.documentElement.classList.add('js');
       // Apply a saved theme before first paint so there's no flash.
       try {
         var t = localStorage.getItem('theme');

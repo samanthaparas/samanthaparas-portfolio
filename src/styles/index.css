@@ -493,3 +493,10 @@ main:focus { outline: none; }
 .nf-text h1.is-stale { opacity: .45; }
 .nf-projects { padding-top: 0; }
 @media (max-width: 859.98px) { .nf-text { min-height: 12em; } }
+
+/* With JavaScript on, the flat die waits until we know 3D can't run; without it, it shows. */
+.js .nf-flat.is-pending { visibility: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .nf-stage canvas { animation: nf-canvas-in .45s ease-out; }
+  @keyframes nf-canvas-in { from { opacity: 0; } }
+}
