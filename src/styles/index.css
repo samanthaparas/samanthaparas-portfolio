@@ -459,3 +459,11 @@ main:focus { outline: none; }
 .toast-region { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 60; width: min(560px, calc(100% - 32px)); pointer-events: none; }
 .toast { margin: 0; padding: 14px 18px; background: var(--ink); color: var(--paper); border-radius: 6px; box-shadow: 4px 4px 0 var(--fill); font-weight: 700; }
 @media (prefers-reduced-motion: no-preference) { .toast { animation: toast-in .25s ease-out; } @keyframes toast-in { from { transform: translateY(12px); opacity: 0; } } }
+
+/* Desk lamp: a warm glow over dot-grid surfaces. Off on touch screens and with reduced motion. */
+.workspace { isolation: isolate; overflow: hidden; }
+.workspace > :not(.lamp) { position: relative; z-index: 1; }
+.lamp { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0; transition: opacity .3s ease;
+  background: radial-gradient(300px circle at var(--lx, 70%) var(--ly, 35%), var(--lamp), transparent 72%); }
+.lamp.is-on { opacity: 1; }
+@media (hover: none), (prefers-reduced-motion: reduce) { .lamp { display: none; } }
