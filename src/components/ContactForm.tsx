@@ -90,6 +90,7 @@ export function ContactForm({ ctaReason }: { ctaReason?: 'build' }) {
   if (status === 'sent') {
     return (
       <p ref={statusRef} tabIndex={-1} className="form-sent" role="status">
+        <span className="sent-die" aria-hidden="true">20</span>
         {fill(t('global', 'form.sent'), { name: sentName })}
       </p>
     );
