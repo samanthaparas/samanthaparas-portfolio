@@ -63,6 +63,7 @@
   "notFound.cta": "Return to safety →",
   "notFound.or": "Or go to:",
   "notFound.links": "Work · Contact · Jump to",
+  "notFound.reroll": "Feeling lucky? Reroll →",
   "console.1": "You found the console. I like you already.",
   "console.2": "Curious how QuestKeeper works? Start here: /behind-the-build",
   "console.3": "Psst: try \"roll d20\" in Jump to ({⌘K or Ctrl+K}).",

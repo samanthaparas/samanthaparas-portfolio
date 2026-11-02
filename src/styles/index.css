@@ -467,3 +467,16 @@ main:focus { outline: none; }
   background: radial-gradient(300px circle at var(--lx, 70%) var(--ly, 35%), var(--lamp), transparent 72%); }
 .lamp.is-on { opacity: 1; }
 @media (hover: none), (prefers-reduced-motion: reduce) { .lamp { display: none; } }
+
+/* Playful corners. */
+::selection { background: var(--fill); color: var(--on-fill); }
+@media (prefers-reduced-motion: no-preference) {
+  .page-fade { animation: page-in .2s ease-out; }
+  @keyframes page-in { from { opacity: 0; transform: translateY(4px); } }
+}
+.nat1 { display: inline-grid; place-items: center; width: 96px; height: 96px; font: 800 40px var(--f-display); color: var(--on-fill); background: var(--fill); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+@media (prefers-reduced-motion: no-preference) { .nat1 { animation: nat1-roll .7s ease-out both; } }
+@keyframes nat1-roll { 0% { transform: rotate(-540deg) scale(.4); opacity: 0; } 70% { transform: rotate(15deg) scale(1.05); opacity: 1; } 100% { transform: rotate(0) scale(1); } }
+.form-sent { display: flex; align-items: center; gap: 12px; }
+.sent-die { flex: none; display: inline-grid; place-items: center; width: 40px; height: 40px; font: 800 16px var(--f-mono); color: var(--on-fill); background: var(--fill); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+@media (prefers-reduced-motion: no-preference) { .sent-die { animation: nat1-roll .6s ease-out both; } }

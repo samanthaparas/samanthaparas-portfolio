@@ -17,7 +17,7 @@ export function Layout() {
         </a>
         <Header />
         <main id="main" tabIndex={-1}>
-          <Outlet />
+          <PageFade />
         </main>
         <Footer />
         <RouteAnnouncer />
@@ -25,6 +25,16 @@ export function Layout() {
         <NavigationEffects />
       </JumpProvider>
     </AudienceProvider>
+  );
+}
+
+/** Each new page fades in (CSS skips it with reduced motion). Keyed by path, so hash jumps don't re-fade. */
+function PageFade() {
+  const { pathname } = useLocation();
+  return (
+    <div key={pathname} className="page-fade">
+      <Outlet />
+    </div>
   );
 }
 
