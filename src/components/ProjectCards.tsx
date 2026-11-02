@@ -57,6 +57,7 @@ export function ProjectCards({ onWorkPage = false }: { onWorkPage?: boolean }) {
       </article>
 
       <article className="card">
+        <Shot altKey="img.cysiTitle" base="/images/cysi/title" widths={[640, 1280]} width={1280} height={900} sizes="(min-width: 860px) 420px, 100vw" />
         <p className="card-type label">
           {pick('card.cysi.type')} <Status text={t('home', 'card.cysi.status')} />
         </p>

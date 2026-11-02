@@ -179,6 +179,18 @@ export default function QuestKeeper() {
           </section>
 
           <section id="receipts" className="case-section receipts" aria-label="Stack, tests, accessibility, links">
+            <div className="evidence">
+              <h2>{q('evidence.title')}</h2>
+              <p>{q('evidence.intro')}</p>
+              <ul className="evidence-list">
+                <li><ExtLink href={external.questkeeperCi}>{q('evidence.ci')}</ExtLink></li>
+                <li><ExtLink href={external.questkeeperCiRuns}>{q('evidence.runs')}</ExtLink></li>
+                <li><ExtLink href={external.questkeeperAcTests}>{q('evidence.acTests')}</ExtLink></li>
+                <li><ExtLink href={external.questkeeperAttackTests}>{q('evidence.attackTests')}</ExtLink></li>
+                <li><ExtLink href={external.questkeeperAiTests}>{q('evidence.aiTests')}</ExtLink></li>
+                <li><ExtLink href={external.questkeeperAttackSql}>{q('evidence.attackSql')}</ExtLink></li>
+              </ul>
+            </div>
             <div>
               <h2>{q('stack.title')}</h2>
               <ul className="bullets">{numbered('questkeeper', 'stack').map((item) => <li key={item}>{item}</li>)}</ul>

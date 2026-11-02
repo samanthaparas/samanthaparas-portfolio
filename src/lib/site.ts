@@ -12,6 +12,13 @@ export const external = {
   questkeeperLive: 'https://questkeeper-it0i.onrender.com',
   questkeeperRepo: 'https://github.com/samanthaparas/QuestKeeper',
   questkeeperReadme: 'https://github.com/samanthaparas/QuestKeeper#readme',
+  questkeeperCi: 'https://github.com/samanthaparas/QuestKeeper/blob/main/.github/workflows/ci.yml',
+  questkeeperCiRuns: 'https://github.com/samanthaparas/QuestKeeper/actions/workflows/ci.yml',
+  questkeeperAcTests: 'https://github.com/samanthaparas/QuestKeeper/blob/main/questkeeper-frontend/src/utils/armorClass.test.js',
+  questkeeperAttackTests: 'https://github.com/samanthaparas/QuestKeeper/blob/main/questkeeper-frontend/src/utils/attacks.test.js',
+  questkeeperAiTests: 'https://github.com/samanthaparas/QuestKeeper/blob/main/questkeeper-backend/src/controllers/aiSearchController.test.js',
+  // The current definition of attack_roll (the last migration to replace it).
+  questkeeperAttackSql: 'https://github.com/samanthaparas/QuestKeeper/blob/main/supabase/migrations/20261003_monster_attacks.sql#L38',
   github: 'https://github.com/samanthaparas',
   linkedin: 'https://www.linkedin.com/in/samantha-paras/',
   email: 'samantha.paras94@gmail.com',
