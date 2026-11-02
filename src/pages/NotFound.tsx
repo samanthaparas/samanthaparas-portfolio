@@ -28,9 +28,12 @@ export default function NotFound() {
   const [rollKey, setRollKey] = useState(0);
   const [rolling, setRolling] = useState(false);
   const [mode, setMode] = useState<Mode>('flat');
+  // Until this visit decides between 3D and flat, the flat die stays hidden (when JavaScript runs).
+  const [decided, setDecided] = useState(false);
   const [lowPower, setLowPower] = useState(false);
 
   useEffect(() => {
+    setDecided(true);
     if (!canRun3D()) return;
     const nav = navigator as Navigator & { deviceMemory?: number };
     setLowPower((nav.hardwareConcurrency ?? 8) <= 4 || (nav.deviceMemory ?? 8) <= 4);
@@ -61,7 +64,8 @@ export default function NotFound() {
     <div className="container page not-found">
       <div className={`nf-stage${mode === '3d' ? ' is-3d' : ''}`} aria-hidden="true">
         {mode === '3d' ? (
-          <Suspense fallback={<FlatDie n={shown} />}>
+          // While the 3D code downloads, the plum stage stays empty: no flat die flashing in between.
+          <Suspense fallback={null}>
             <Dice3D
               value={value}
               rollKey={rollKey}
@@ -72,7 +76,7 @@ export default function NotFound() {
             />
           </Suspense>
         ) : (
-          <FlatDie n={shown} />
+          <FlatDie n={shown} pending={!decided} />
         )}
       </div>
 
@@ -103,9 +107,9 @@ export default function NotFound() {
 }
 
 /** The non-3D die: reduced motion, no WebGL, and the moment before the 3D loads. */
-function FlatDie({ n }: { n: number }) {
+function FlatDie({ n, pending }: { n: number; pending: boolean }) {
   return (
-    <div className="nf-flat">
+    <div className={`nf-flat${pending ? ' is-pending' : ''}`}>
       <span className={`nat1${n === 20 ? ' is-20' : ''}`} key={n}>{n}</span>
     </div>
   );
