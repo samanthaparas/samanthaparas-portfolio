@@ -8,6 +8,7 @@ import { ProjectCards } from '../components/ProjectCards';
 import { RoutePicker } from '../components/RoutePicker';
 import { StopTag } from '../components/StopTag';
 import { Labeled } from '../components/bits';
+import { Lamp } from '../components/Lamp';
 import { Shot } from '../components/Shot';
 
 const h = (key: string) => t('home', key);
@@ -58,6 +59,7 @@ export default function Home() {
   return (
     <>
       <section className="hero workspace" aria-labelledby="hero-h1">
+        <Lamp />
         <div className="container hero-in">
           <p className="label">{h('hero.eyebrow')}</p>
           <h1 id="hero-h1">
