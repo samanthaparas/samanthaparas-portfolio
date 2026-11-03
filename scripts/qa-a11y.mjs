@@ -4,7 +4,7 @@
 import { readFileSync } from 'node:fs';
 const base = process.argv[2] ?? 'http://localhost:4173';
 const axe = readFileSync(new URL('../node_modules/axe-core/axe.min.js', import.meta.url), 'utf8');
-const pages = ['/', '/work', '/work/questkeeper', '/work/can-you-spot-it', '/work/nugget-hackathon', '/behind-the-build', '/about', '/services', '/contact', '/easter-eggs', '/no-such-page'];
+const pages = ['/', '/work', '/work/questkeeper', '/work/can-you-spot-it', '/work/nugget-hackathon', '/work/reckoning-tattoo', '/behind-the-build', '/about', '/services', '/contact', '/easter-eggs', '/no-such-page'];
 const views = [ { w: 1280, mobile: false }, { w: 390, mobile: true } ];
 const tgt = await (await fetch('http://127.0.0.1:9333/json/new?about:blank', { method: 'PUT' })).json();
 const ws = new WebSocket(tgt.webSocketDebuggerUrl); await new Promise((r) => (ws.onopen = r));

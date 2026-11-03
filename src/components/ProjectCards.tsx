@@ -6,7 +6,7 @@ import { Labeled, Origin, Status } from './bits';
 import { Shot } from './Shot';
 
 /**
- * The three project spec sheets, shared by Home and Work. Work overrides a few strings
+ * The project spec sheets, shared by Home and Work. Work overrides a few strings
  * (dates on the type line, the fuller stack and summary); everything else is the Home copy.
  */
 export function ProjectCards({ onWorkPage = false }: { onWorkPage?: boolean }) {
@@ -98,6 +98,25 @@ export function ProjectCards({ onWorkPage = false }: { onWorkPage?: boolean }) {
         </ul>
         <Link to="/work/nugget-hackathon" className="btn btn-text">
           {t('home', 'card.nugget.note')}
+        </Link>
+      </article>
+
+      <article className="card card-wide">
+        <p className="card-type label">
+          {pick('card.reckoning.type')} <Status text={t('home', 'card.reckoning.status')} />
+        </p>
+        <H className="card-name">
+          <Link to="/work/reckoning-tattoo">{t('home', 'card.reckoning.name')}</Link>
+        </H>
+        <Origin text={t('home', 'card.reckoning.origin')} />
+        <p>{t('home', 'card.reckoning.summary')}</p>
+        <ul className="card-meta">
+          <li><Labeled text={t('home', 'card.reckoning.role')} /></li>
+          <li><Labeled text={t('home', 'card.reckoning.stack')} /></li>
+          <li><Labeled text={t('home', 'card.reckoning.evidence')} /></li>
+        </ul>
+        <Link to="/work/reckoning-tattoo" className="btn btn-text">
+          {t('home', 'card.reckoning.note')}
         </Link>
       </article>
     </div>

@@ -2,7 +2,7 @@
 // indicator, and measures tap targets on a phone-sized view (44px minimum, per the design system).
 // Usage: npm run preview, Chrome with --remote-debugging-port=9333, then node scripts/qa-keyboard.mjs
 const base = process.argv[2] ?? 'http://localhost:4173';
-const pages = ['/', '/work', '/work/questkeeper', '/work/can-you-spot-it', '/work/nugget-hackathon', '/behind-the-build', '/about', '/services', '/contact', '/easter-eggs', '/no-such-page'];
+const pages = ['/', '/work', '/work/questkeeper', '/work/can-you-spot-it', '/work/nugget-hackathon', '/work/reckoning-tattoo', '/behind-the-build', '/about', '/services', '/contact', '/easter-eggs', '/no-such-page'];
 const tgt = await (await fetch('http://127.0.0.1:9333/json/new?about:blank', { method: 'PUT' })).json();
 const ws = new WebSocket(tgt.webSocketDebuggerUrl); await new Promise((r) => (ws.onopen = r));
 let id = 0; const pend = {};

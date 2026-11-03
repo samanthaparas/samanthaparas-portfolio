@@ -14,6 +14,7 @@ const copy = {
   images: byName('images'),
   nugget: byName('nugget'),
   questkeeper: byName('questkeeper'),
+  reckoning: byName('reckoning-tattoo'),
   services: byName('services'),
   work: byName('work'),
 };

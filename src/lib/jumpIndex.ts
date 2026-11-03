@@ -17,6 +17,7 @@ export function jumpItems(): JumpItem[] {
     { group: 'projects', label: qk, href: '/work/questkeeper' },
     { group: 'projects', label: t('home', 'card.cysi.name'), href: '/work/can-you-spot-it' },
     { group: 'projects', label: t('home', 'card.nugget.name'), href: '/work/nugget-hackathon' },
+    { group: 'projects', label: t('home', 'card.reckoning.name'), href: '/work/reckoning-tattoo' },
     { group: 'sections', label: `${qk} › ${t('questkeeper', 'wrong.h2')}`, href: '/work/questkeeper#wrong' },
     { group: 'sections', label: `${qk} › ${t('questkeeper', 'changed.h2')}`, href: '/work/questkeeper#changed' },
     { group: 'sections', label: `${t('global', 'nav.about')} › ${t('about', 'exp.h2')}`, href: '/about#experience' },

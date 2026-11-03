@@ -19,6 +19,7 @@ export const pages: PageMeta[] = [
   fromCopy('/work/questkeeper', 'questkeeper'),
   fromCopy('/work/can-you-spot-it', 'cysi'),
   fromCopy('/work/nugget-hackathon', 'nugget'),
+  fromCopy('/work/reckoning-tattoo', 'reckoning'),
   fromCopy('/behind-the-build', 'btb'),
   fromCopy('/about', 'about'),
   fromCopy('/services', 'services'),

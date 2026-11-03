@@ -14,5 +14,9 @@
   "photo.contact": "Samantha smiling at a table with her laptop, chin resting on her hand.",
   "img.cysiTitle": "Can You Spot It's title screen: a detective-themed logo with a magnifying glass, the tagline \"Find the mistakes hidden in true facts,\" and a Begin Game button.",
   "img.cysiHowto": "The How to play guide: \"The Eiffel Tower is in Pariss, France,\" with the misspelling highlighted as an example.",
-  "img.cysiPractice": "A practice round: a short paragraph about sea otters with two mistakes to find and a Need a hint button."
+  "img.cysiPractice": "A practice round: a short paragraph about sea otters with two mistakes to find and a Need a hint button.",
+  "img.rtPoster": "Earlier draft beside the live homepage: in the draft, the Black Friday poster is cropped inside a service card and its dates are cut off; live, the full poster sits next to \"Black Friday Deal, November 1–27\" and a Book Now button.",
+  "img.rtFeatured": "Earlier draft beside the live homepage: the same three tattoo photos, first under \"Portfolio / Selected tattoos,\" now under a \"Featured Work\" heading.",
+  "img.rtEvents": "Earlier Events layout beside the live one: the event posters and text used to be staggered; now the two San Antonio festival posters sit side by side next to the November festival details.",
+  "img.rtSpacing": "A gap I introduced and then fixed: a published version of the homepage with a screen of empty black space, beside the corrected version where the Tattoo Services heading follows the promo directly."
 }
