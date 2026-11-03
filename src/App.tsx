@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Nugget from './pages/Nugget';
 import QuestKeeper from './pages/QuestKeeper';
+import Reckoning from './pages/Reckoning';
 import Services from './pages/Services';
 import Work from './pages/Work';
 
@@ -21,6 +22,7 @@ export function App() {
         <Route path="work/questkeeper" element={<QuestKeeper />} />
         <Route path="work/can-you-spot-it" element={<CanYouSpotIt />} />
         <Route path="work/nugget-hackathon" element={<Nugget />} />
+        <Route path="work/reckoning-tattoo" element={<Reckoning />} />
         <Route path="behind-the-build" element={<BehindTheBuild />} />
         <Route path="about" element={<About />} />
         <Route path="services" element={<Services />} />

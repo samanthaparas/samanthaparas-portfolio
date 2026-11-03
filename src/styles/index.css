@@ -189,6 +189,9 @@ main:focus { outline: none; }
   .card-featured { grid-column: 1 / -1; grid-template-columns: 7fr 5fr; column-gap: 32px; align-items: start; }
   .card-featured .card-media { grid-column: 2; grid-row: 1; }
   .card-featured .card-body { grid-column: 1; grid-row: 1; }
+  /* A card left alone on the last row spans it, so there's no empty column beside it. */
+  .card-wide { grid-column: 1 / -1; }
+  .card-wide > :not(.card-type, .btn) { max-width: 70ch; }
 }
 .card { background: var(--surface); border: 1.5px solid var(--rule); border-radius: 6px; padding: 24px; display: grid; gap: 12px; align-content: start; transition: border-color .2s ease; }
 .card:hover, .card:focus-within { border-color: var(--ink); }
@@ -331,6 +334,8 @@ main:focus { outline: none; }
 .experience { border-collapse: collapse; width: 100%; font-size: 16px; }
 .experience th, .experience td { text-align: left; vertical-align: top; padding: 16px 16px 16px 0; border-top: 1px solid var(--rule); font-weight: 400; }
 .experience thead th { font: 500 12px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-top: 0; }
+.seo-table caption { text-align: left; font: 500 12px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-bottom: 8px; }
+.seo-table td.mono { font-size: 14px; }
 .experience .when { white-space: nowrap; font-size: 13px; width: 160px; }
 .role { display: grid; gap: 4px; }
 .role-title { font-weight: 700; }

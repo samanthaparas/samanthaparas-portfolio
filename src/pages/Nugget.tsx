@@ -45,7 +45,7 @@ export default function Nugget() {
 
       <nav className="next-nav" aria-label="Projects">
         <Link to="/work/can-you-spot-it">{n('footer.back')}</Link>
-        <Link to="/work/questkeeper" className="btn btn-secondary">{n('footer.next')}</Link>
+        <Link to="/work/reckoning-tattoo" className="btn btn-secondary">{n('footer.next')}</Link>
       </nav>
     </div>
   );
