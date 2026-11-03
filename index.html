@@ -20,5 +20,15 @@
   <body>
     <div id="root"><!--app--></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Cloudflare Web Analytics: cookie-free page counts. Only on the live domain, so local previews and QA runs aren't counted.
+      if (location.hostname === 'samanthaparas.com') {
+        var b = document.createElement('script');
+        b.defer = true;
+        b.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+        b.setAttribute('data-cf-beacon', '{"token": "7f6dd1e583fd4a6293dd135179996b87"}');
+        document.body.appendChild(b);
+      }
+    </script>
   </body>
 </html>
