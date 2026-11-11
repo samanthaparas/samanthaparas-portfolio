@@ -19,6 +19,9 @@ export const external = {
   questkeeperAiTests: 'https://github.com/samanthaparas/QuestKeeper/blob/main/questkeeper-backend/src/controllers/aiSearchController.test.js',
   // The current definition of attack_roll (the last migration to replace it).
   questkeeperAttackSql: 'https://github.com/samanthaparas/QuestKeeper/blob/main/supabase/migrations/20261003_monster_attacks.sql#L38',
+  cysiLive: 'https://cysi.dsngames.com/',
+  nearmoraRepo: 'https://github.com/samanthaparas/nearmora',
+  jostracaReview: 'https://dev.to/samanthaparas/jostraca-review-a-good-merge-engine-with-unsafe-defaults-47fi',
   github: 'https://github.com/samanthaparas',
   // Written daily by .github/workflows/contributions.yml; read by the About page's contribution graph.
   contributionsData: 'https://raw.githubusercontent.com/samanthaparas/samanthaparas-portfolio/contributions-data/contributions.json',

@@ -9,5 +9,22 @@
   "card.cysi.type": "Web game · team of three · 2026",
   "card.nugget.type": "Software engineering externship · 4 weeks · 2026",
   "card.nugget.summary": "Help parents find family-friendly restaurants through reviews grounded in real family context. I built community groups and a guided four-step review form.",
-  "card.reckoning.type": "Client project · Oct–Nov 2026"
+  "card.reckoning.type": "Client project · Oct–Nov 2026",
+  "card.nearmora.type": "Mac desktop app · Oct 2026 → now",
+  "card.nearmora.status": "◐ Prototype",
+  "card.nearmora.name": "nearmora",
+  "card.nearmora.summary": "A local-first Mac app for finding your favorite photos, choosing between similar shots and turning them into collages and carousels. It never uploads, moves or edits your originals.",
+  "card.nearmora.role": "Role: Solo developer",
+  "card.nearmora.stack": "Stack: Electron · React 19 · TypeScript · SQLite · Vitest · Playwright",
+  "card.nearmora.evidence": "Status: Prototype. Test builds only, not signed yet",
+  "card.nearmora.source": "Source ↗",
+  "card.voxgig.type": "Product feedback · Oct 2026",
+  "card.voxgig.status": "● Published",
+  "card.voxgig.name": "Voxgig developer tools",
+  "card.voxgig.origin": "Voxgig wanted an honest opinion of their developer tools.",
+  "card.voxgig.summary": "I generated a Resend SDK in TypeScript, Python and Go with their SDK generator, tried Aontu, and used Jostraca on a React component generator. Then I told them what worked, what didn't and why.",
+  "card.voxgig.role": "Role: Tester and reviewer",
+  "card.voxgig.stack": "Tools: Voxgig SDK generator · Jostraca · Aontu · TypeScript · Python",
+  "card.voxgig.evidence": "Status: Feedback delivered; Jostraca review published on dev.to",
+  "card.voxgig.review": "Read the review ↗"
 }
