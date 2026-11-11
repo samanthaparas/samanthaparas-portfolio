@@ -71,9 +71,14 @@ export function ProjectCards({ onWorkPage = false }: { onWorkPage?: boolean }) {
           <li><Labeled text={t('home', 'card.cysi.stack')} /></li>
           <li><Labeled text={t('home', 'card.cysi.evidence')} /></li>
         </ul>
-        <Link to="/work/can-you-spot-it" className="btn btn-text">
-          {t('home', 'card.cysi.note')}
-        </Link>
+        <div className="btn-row">
+          <ExtLink href={external.cysiLive} className="btn btn-secondary">
+            {t('home', 'card.cysi.play')}
+          </ExtLink>
+          <Link to="/work/can-you-spot-it" className="btn btn-text">
+            {t('home', 'card.cysi.note')}
+          </Link>
+        </div>
       </article>
 
       <article className="card">
@@ -100,6 +105,44 @@ export function ProjectCards({ onWorkPage = false }: { onWorkPage?: boolean }) {
           {t('home', 'card.nugget.note')}
         </Link>
       </article>
+
+      {onWorkPage && (
+        <>
+          {/* Work page only: smaller projects without a case study yet. */}
+          <article className="card">
+            <p className="card-type label">
+              {t('work', 'card.nearmora.type')} <Status text={t('work', 'card.nearmora.status')} />
+            </p>
+            <H className="card-name">{t('work', 'card.nearmora.name')}</H>
+            <p>{t('work', 'card.nearmora.summary')}</p>
+            <ul className="card-meta">
+              <li><Labeled text={t('work', 'card.nearmora.role')} /></li>
+              <li><Labeled text={t('work', 'card.nearmora.stack')} /></li>
+              <li><Labeled text={t('work', 'card.nearmora.evidence')} /></li>
+            </ul>
+            <ExtLink href={external.nearmoraRepo} className="btn btn-text">
+              {t('work', 'card.nearmora.source')}
+            </ExtLink>
+          </article>
+
+          <article className="card">
+            <p className="card-type label">
+              {t('work', 'card.voxgig.type')} <Status text={t('work', 'card.voxgig.status')} />
+            </p>
+            <H className="card-name">{t('work', 'card.voxgig.name')}</H>
+            <Origin text={t('work', 'card.voxgig.origin')} />
+            <p>{t('work', 'card.voxgig.summary')}</p>
+            <ul className="card-meta">
+              <li><Labeled text={t('work', 'card.voxgig.role')} /></li>
+              <li><Labeled text={t('work', 'card.voxgig.stack')} /></li>
+              <li><Labeled text={t('work', 'card.voxgig.evidence')} /></li>
+            </ul>
+            <ExtLink href={external.jostracaReview} className="btn btn-text">
+              {t('work', 'card.voxgig.review')}
+            </ExtLink>
+          </article>
+        </>
+      )}
 
       <article className="card card-wide">
         <p className="card-type label">

@@ -2,10 +2,12 @@ import { Link } from 'react-router';
 import { numbered, t } from '../content';
 import { Shot } from '../components/Shot';
 import { Labeled, MarginNote } from '../components/bits';
+import { ExtLink } from '../components/ExtLink';
+import { external } from '../lib/site';
 
 const c = (key: string) => t('cysi', key);
 
-/** Permission-safe version: no teammate names, no screenshots, no links (repo private, playtest unlisted). */
+/** Permission-safe version: no teammate names and no repo link (it's private). The live game is public. */
 export default function CanYouSpotIt() {
   return (
     <div className="container page note-page">
@@ -20,6 +22,9 @@ export default function CanYouSpotIt() {
           <li><Labeled text={c('spec.stack')} /></li>
           <li><Labeled text={c('spec.status')} /></li>
         </ul>
+        <p>
+          <ExtLink href={external.cysiLive} className="btn btn-secondary">{c('links.play')}</ExtLink>
+        </p>
         <p className="small muted">{c('links.none')}</p>
       </header>
 
